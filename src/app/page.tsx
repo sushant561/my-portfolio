@@ -3,19 +3,96 @@
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 import { useActiveSection } from './components/ActiveSectionContext';
+import type { Section } from './components/ActiveSectionContext';
 import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaReact, FaHtml5, FaCss3Alt, FaBootstrap, FaChartBar } from 'react-icons/fa';
 import { SiTailwindcss, SiTypescript, SiCplusplus, SiJavascript, SiPandas, SiNumpy } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 
+interface Skill {
+  name: string;
+  icon: React.ElementType;
+  color: string;
+}
+
+interface SkillCardProps {
+  skill: Skill;
+  index: number;
+}
+
+const SkillCard = ({ skill, index }: SkillCardProps) => {
+  const Icon = skill.icon;
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        opacity: [0, 1, 0],
+        x: ['100%', '0%', '-100%'],
+        transition: {
+          duration: 2,
+          delay: index * 0.1,
+          ease: 'easeInOut'
+        }
+      });
+    }
+  }, [controls, inView, index]);
+
+  return (
+    <motion.div
+      ref={ref}
+      className="relative p-6 rounded-lg bg-white dark:bg-gray-800 shadow-lg group hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden"
+      whileHover={{ scale: 1.05 }}
+      style={{
+        background: `linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%)`,
+      }}
+    >
+      <motion.div 
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-[#ffffff20] to-transparent"
+        animate={controls}
+      />
+      <div className="relative flex flex-col items-center gap-4">
+        <Icon className="w-12 h-12 transition-transform duration-300 group-hover:scale-110" style={{ color: skill.color }} />
+        <h3 className="text-xl font-semibold text-center capitalize">{skill.name}</h3>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function Home() {
   const { activeSection, setActiveSection } = useActiveSection();
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId: Section) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setActiveSection(sectionId as any);
+    if (element) {
+      const navbarHeight = 64; // height of navbar
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navbarHeight,
+        behavior: 'smooth'
+      });
+      setActiveSection(sectionId);
+    }
   };
+
+  const skills = [
+    { name: 'Python', icon: FaPython, color: '#3776AB' },
+    { name: 'Pandas', icon: SiPandas, color: '#150458' },
+    { name: 'Matplotlib', icon: FaChartBar, color: '#11557C' },
+    { name: 'NumPy', icon: SiNumpy, color: '#013243' },
+    { name: 'C++', icon: SiCplusplus, color: '#00599C' },
+    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+    { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
+    { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
+    { name: 'React', icon: FaReact, color: '#61DAFB' },
+    { name: 'Bootstrap', icon: FaBootstrap, color: '#7952B3' },
+    { name: 'Tailwind', icon: SiTailwindcss, color: '#06B6D4' },
+    { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' }
+  ];
 
   return (
     <div className="min-h-screen">
@@ -50,25 +127,29 @@ export default function Home() {
               </a>
             </div>
             <div className="flex gap-4 pt-4">
-              <button
+              <motion.button
                 onClick={() => scrollToSection('projects')}
                 className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 View Projects
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 onClick={() => scrollToSection('contact')}
                 className="px-6 py-3 border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Contact Me
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-              </button>
+              </motion.button>
             </div>
           </div>
           <div className="flex-1 flex justify-center">
@@ -103,62 +184,9 @@ export default function Home() {
             responsive, and user-centric digital solutions.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {[
-              { name: 'Python', icon: FaPython, color: '#3776AB' },
-              { name: 'Pandas', icon: SiPandas, color: '#150458' },
-              { name: 'Matplotlib', icon: FaChartBar, color: '#11557C' },
-              { name: 'NumPy', icon: SiNumpy, color: '#013243' },
-              { name: 'C++', icon: SiCplusplus, color: '#00599C' },
-              { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
-              { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
-              { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
-              { name: 'React', icon: FaReact, color: '#61DAFB' },
-              { name: 'Bootstrap', icon: FaBootstrap, color: '#7952B3' },
-              { name: 'Tailwind', icon: SiTailwindcss, color: '#06B6D4' },
-              { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' }
-            ].map((skill, index) => {
-              const Icon = skill.icon;
-              const controls = useAnimation();
-              const [ref, inView] = useInView({
-                triggerOnce: true,
-                threshold: 0.2
-              });
-
-              useEffect(() => {
-                if (inView) {
-                  controls.start({
-                    opacity: [0, 1, 0],
-                    x: ['100%', '0%', '-100%'],
-                    transition: {
-                      duration: 2,
-                      delay: index * 0.1,
-                      ease: 'easeInOut'
-                    }
-                  });
-                }
-              }, [controls, inView, index]);
-
-              return (
-                <motion.div
-                  ref={ref}
-                  key={skill.name}
-                  className="relative p-6 rounded-lg bg-white dark:bg-gray-800 shadow-lg group hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
-                  style={{
-                    background: `linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%)`,
-                  }}
-                >
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-[#ffffff20] to-transparent"
-                    animate={controls}
-                  />
-                  <div className="relative flex flex-col items-center gap-4">
-                    <Icon className="w-12 h-12 transition-transform duration-300 group-hover:scale-110" style={{ color: skill.color }} />
-                    <h3 className="text-xl font-semibold text-center capitalize">{skill.name}</h3>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {skills.map((skill, index) => (
+              <SkillCard key={skill.name} skill={skill} index={index} />
+            ))}
           </div>
         </motion.div>
       </section>

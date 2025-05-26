@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-type Section = 'home' | 'projects' | 'skills' | 'resume' | 'contact';
+export type Section = 'home' | 'projects' | 'skills' | 'resume' | 'contact';
 
 interface ActiveSectionContextType {
   activeSection: Section;
