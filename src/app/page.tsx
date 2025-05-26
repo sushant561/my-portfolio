@@ -10,6 +10,7 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import ContactForm from './components/ContactForm';
 import dynamic from 'next/dynamic';
+import { TypeAnimation } from 'react-type-animation';
 
 // Dynamically import motion components with no SSR
 const MotionDiv = dynamic(() => import('framer-motion').then(mod => mod.motion.div), { ssr: false });
@@ -112,7 +113,25 @@ export default function Home() {
         >
           <div className="flex-1 space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white">
-              Hi, I'm <span className="text-blue-600 dark:text-blue-400">Sushant Bhagat</span>
+              Hi, I'm <br/>{' '}
+              <span className="text-blue-600 dark:text-blue-400 inline-block">
+                <TypeAnimation
+                  sequence={[
+                    'Sushant Bhagat',
+                    4000,
+                    'Developer',
+                    2000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                  className="inline-block type-cursor"
+                  style={{ 
+                    display: 'inline-block',
+                    '--cursor-width': '2px'
+                  } as React.CSSProperties}
+                />
+              </span>
             </h1>
             <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
               Full Stack Developer

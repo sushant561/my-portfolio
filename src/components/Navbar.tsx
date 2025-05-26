@@ -7,6 +7,7 @@ import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 const Navbar = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     setMounted(true);
@@ -30,6 +31,7 @@ const Navbar = () => {
         top: elementPosition - navbarHeight,
         behavior: 'smooth'
       });
+      setActiveSection(href.replace('#', ''));
     }
   };
 
@@ -42,9 +44,9 @@ const Navbar = () => {
           <a 
             href="#home" 
             onClick={(e) => scrollToSection(e, '#home')}
-            className="text-xl font-bold text-gray-800 dark:text-white"
+            className="text-xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
           >
-            Portfolio
+            Sushant
           </a>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -53,7 +55,11 @@ const Navbar = () => {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+                className={`relative py-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300
+                  after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 
+                  after:bg-blue-600 dark:after:bg-blue-400 after:scale-x-0 hover:after:scale-x-100 
+                  after:transition-transform after:duration-300 after:origin-center
+                  ${activeSection === item.href.replace('#', '') ? 'text-blue-600 dark:text-blue-400 after:scale-x-100' : ''}`}
               >
                 {item.name}
               </a>
