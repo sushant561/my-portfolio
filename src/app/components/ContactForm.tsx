@@ -32,11 +32,11 @@ export default function ContactForm() {
 
   return (
     <MotionForm 
-      className="space-y-6"
+      className="space-y-8"
       onSubmit={handleSubmit}
     >
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Name
         </label>
         <MotionInput
@@ -46,12 +46,12 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+          className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 py-3 px-4 text-base"
           whileFocus={{ scale: 1.01 }}
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Email
         </label>
         <MotionInput
@@ -61,12 +61,12 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+          className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 py-3 px-4 text-base"
           whileFocus={{ scale: 1.01 }}
         />
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Message
         </label>
         <MotionTextarea
@@ -74,15 +74,15 @@ export default function ContactForm() {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          rows={4}
+          rows={6}
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+          className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 py-3 px-4 text-base resize-none"
           whileFocus={{ scale: 1.01 }}
         />
       </div>
       <MotionButton
         type="submit"
-        className="w-full px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+        className="w-full px-6 py-4 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors text-lg font-medium shadow-lg hover:shadow-xl"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >

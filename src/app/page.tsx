@@ -141,13 +141,13 @@ export default function Home() {
               With expertise in modern technologies, I bring ideas to life through clean and efficient code.
             </p>
             <div className="flex gap-4">
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://github.com/sushant561" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaGithub className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://www.linkedin.com/in/sushant-bhagat-9a3587329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaLinkedin className="w-5 h-5" />
               </a>
-              <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://x.com/Sushant1864?t=-Cz316oQrgtUDbIO_nyOoA&s=08 " target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaTwitter className="w-5 h-5" />
               </a>
             </div>
@@ -377,6 +377,63 @@ export default function Home() {
           className="max-w-7xl mx-auto px-4"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
+          
+          {/* Contact Info Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
+            {/* Location Card */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white dark:bg-gray-800 rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Location</h3>
+              <p className="text-gray-600 dark:text-gray-300">New Delhi, India</p>
+            </motion.div>
+
+            {/* Email Card */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white dark:bg-gray-800 rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Email</h3>
+              <a href="mailto:your.email@example.com" className="text-blue-600 dark:text-blue-400 hover:underline">
+                sushantbhagat561@gmail.com
+              </a>
+            </motion.div>
+
+            {/* Phone Card */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-white dark:bg-gray-800 rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Phone</h3>
+              <a href="tel:+1234567890" className="text-blue-600 dark:text-blue-400 hover:underline">
+                +91 8102406701
+              </a>
+            </motion.div>
+          </div>
+
           <div className="max-w-2xl mx-auto">
             <ContactForm />
           </div>
@@ -388,18 +445,18 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col items-center justify-center space-y-4">
             <div className="flex gap-4">
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://github.com/sushant561" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaGithub className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://www.linkedin.com/in/sushant-bhagat-9a3587329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaLinkedin className="w-5 h-5" />
               </a>
-              <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://x.com/Sushant1864?t=-Cz316oQrgtUDbIO_nyOoA&s=08 " target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaTwitter className="w-5 h-5" />
               </a>
             </div>
             <p className="text-gray-600 dark:text-gray-300">
-              © {new Date().getFullYear()} Your Name. All rights reserved.
+              © {new Date().getFullYear()} Sushant Bhagat. All rights reserved.
             </p>
           </div>
         </div>
