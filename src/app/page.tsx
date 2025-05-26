@@ -8,6 +8,12 @@ import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaReact, FaHtml5, FaCss3Alt,
 import { SiTailwindcss, SiTypescript, SiCplusplus, SiJavascript, SiPandas, SiNumpy } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import ContactForm from './components/ContactForm';
+import dynamic from 'next/dynamic';
+
+// Dynamically import motion components with no SSR
+const MotionDiv = dynamic(() => import('framer-motion').then(mod => mod.motion.div), { ssr: false });
+const MotionButton = dynamic(() => import('framer-motion').then(mod => mod.motion.button), { ssr: false });
 
 interface Skill {
   name: string;
@@ -200,42 +206,98 @@ export default function Home() {
           className="max-w-7xl mx-auto px-4"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Featured Projects</h2>
+          <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
+          Showcasing a selection of innovative projects that highlight my skills, creativity, <br/> and passion for impactful digital solutions.
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((project) => (
-              <div key={project} className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-                <div className="relative h-48">
+            {[
+              {
+                title: "Modern College Web Portal",
+                description: "Developed a responsive college website using HTML, CSS, and JavaScript, featuring interactive design, smooth navigation, and essential functionalities.",
+                image: "/images/project1.png",
+                tech: ["html", "Css", "JavaScript"],
+                github: "https://github.com/sushant561/collage-website",
+                demo: "https://willowy-brioche-3160f6.netlify.app/"
+              },
+              {
+                title: "AI Exam Prep Platform",
+                description: "Created an advanced exam preparation website using modern tech stack, integrating AI features, secure backend, and responsive, user-friendly interface.",
+                image: "/images/project2.png",
+                tech: ['Next.js', 'JavaScript', 'Express.js', 'Cloudinary', 'TailwindCSS', 'TypeScript'],
+                github: "https://github.com/sushant561/ionia-Institute",
+                demo: "https://www.ionia.sbs/"
+              },
+              {
+                title: "College Recruitment Web Portal",
+                description: "Designed a clean, responsive college recruitment website using HTML and CSS to streamline application processes and improve user engagement.",
+                image: "/images/project3.png",
+                tech: ["html", "Css"],
+                github: "https://github.com/sushant561/it-cell-arsd",
+                demo: "https://it-cell-arsd.vercel.app/"
+              }
+            ].map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <div className="absolute inset-0 bg-blue-600 mix-blend-multiply opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
                   <Image
-                    src={`/project-${project}.jpg`}
-                    alt={`Project ${project}`}
+                    src={project.image}
+                    alt={project.title}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">Project Title {project}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    A brief description of the project and the technologies used.
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {project.description}
                   </p>
-                  <div className="mt-4 flex gap-4">
-                    <a
-                      href="#"
-                      className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-4">
+                    <motion.a
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      View Demo
-                    </a>
-                    <a
-                      href="#"
-                      className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                      <FaGithub className="w-5 h-5" />
+                      <span>Code</span>
+                    </motion.a>
+                    <motion.a
+                      href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      Source Code
-                    </a>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                      </svg>
+                      <span>Live Demo</span>
+                    </motion.a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
@@ -251,44 +313,7 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
           <div className="max-w-2xl mx-auto">
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </motion.div>
       </section>
