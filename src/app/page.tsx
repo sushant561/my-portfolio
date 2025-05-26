@@ -46,16 +46,41 @@ export default function Home() {
                 <FaTwitter className="w-5 h-5" />
               </a>
             </div>
+            <div className="flex gap-4 pt-4">
+              <button
+                onClick={() => scrollToSection('projects')}
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+              >
+                View Projects
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="px-6 py-3 border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+              >
+                Contact Me
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+              </button>
+            </div>
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="relative w-64 h-64 md:w-96 md:h-96">
-              <Image
-                src="/profile-placeholder.jpg"
-                alt="Profile"
-                fill
-                className="rounded-full object-cover"
-                priority
-              />
+            <div className="relative w-64 h-64 md:w-96 md:h-96 group">
+              <div className="absolute inset-0 bg-blue-500 rounded-full blur-2xl opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl transform group-hover:scale-105 transition-transform duration-300">
+                <Image
+                  src="/images/sushant.jpg"
+                  alt="Sushant Bhagat"
+                  fill
+                  className="object-cover hover:rotate-6 transition-transform duration-300"
+                  priority
+                />
+              </div>
+              <div className="absolute inset-0 rounded-full ring-2 ring-blue-500 ring-offset-4 ring-offset-white dark:ring-offset-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           </div>
         </motion.div>
