@@ -1,9 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 import { useActiveSection } from './components/ActiveSectionContext';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaReact, FaHtml5, FaCss3Alt, FaBootstrap, FaChartBar } from 'react-icons/fa';
+import { SiTailwindcss, SiTypescript, SiCplusplus, SiJavascript, SiPandas, SiNumpy } from 'react-icons/si';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 export default function Home() {
   const { activeSection, setActiveSection } = useActiveSection();
@@ -95,12 +98,67 @@ export default function Home() {
           className="max-w-7xl mx-auto px-4"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Skills & Expertise</h2>
+          <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
+            Skilled in web development, UI/UX design, and problem-solving, delivering modern, <br/>
+            responsive, and user-centric digital solutions.
+          </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'SQL', 'AWS', 'Docker'].map((skill) => (
-              <div key={skill} className="p-6 rounded-lg bg-white dark:bg-gray-800 shadow-lg">
-                <h3 className="text-xl font-semibold text-center">{skill}</h3>
-              </div>
-            ))}
+            {[
+              { name: 'Python', icon: FaPython, color: '#3776AB' },
+              { name: 'Pandas', icon: SiPandas, color: '#150458' },
+              { name: 'Matplotlib', icon: FaChartBar, color: '#11557C' },
+              { name: 'NumPy', icon: SiNumpy, color: '#013243' },
+              { name: 'C++', icon: SiCplusplus, color: '#00599C' },
+              { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+              { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
+              { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
+              { name: 'React', icon: FaReact, color: '#61DAFB' },
+              { name: 'Bootstrap', icon: FaBootstrap, color: '#7952B3' },
+              { name: 'Tailwind', icon: SiTailwindcss, color: '#06B6D4' },
+              { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' }
+            ].map((skill, index) => {
+              const Icon = skill.icon;
+              const controls = useAnimation();
+              const [ref, inView] = useInView({
+                triggerOnce: true,
+                threshold: 0.2
+              });
+
+              useEffect(() => {
+                if (inView) {
+                  controls.start({
+                    opacity: [0, 1, 0],
+                    x: ['100%', '0%', '-100%'],
+                    transition: {
+                      duration: 2,
+                      delay: index * 0.1,
+                      ease: 'easeInOut'
+                    }
+                  });
+                }
+              }, [controls, inView, index]);
+
+              return (
+                <motion.div
+                  ref={ref}
+                  key={skill.name}
+                  className="relative p-6 rounded-lg bg-white dark:bg-gray-800 shadow-lg group hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  style={{
+                    background: `linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%)`,
+                  }}
+                >
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-[#ffffff20] to-transparent"
+                    animate={controls}
+                  />
+                  <div className="relative flex flex-col items-center gap-4">
+                    <Icon className="w-12 h-12 transition-transform duration-300 group-hover:scale-110" style={{ color: skill.color }} />
+                    <h3 className="text-xl font-semibold text-center capitalize">{skill.name}</h3>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </section>
