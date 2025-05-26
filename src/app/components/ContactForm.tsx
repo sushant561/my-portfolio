@@ -30,6 +30,8 @@ export default function ContactForm() {
     }));
   };
 
+  const inputClasses = "mt-1 block w-full rounded-lg border border-gray-300 bg-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 py-3 px-4 text-base text-gray-900 transition-all duration-200 hover:border-blue-400";
+
   return (
     <MotionForm 
       className="space-y-8"
@@ -46,7 +48,7 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 py-3 px-4 text-base"
+          className={inputClasses}
           whileFocus={{ scale: 1.01 }}
         />
       </div>
@@ -61,7 +63,7 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 py-3 px-4 text-base"
+          className={inputClasses}
           whileFocus={{ scale: 1.01 }}
         />
       </div>
@@ -76,7 +78,7 @@ export default function ContactForm() {
           onChange={handleChange}
           rows={6}
           required
-          className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 py-3 px-4 text-base resize-none"
+          className={inputClasses}
           whileFocus={{ scale: 1.01 }}
         />
       </div>
