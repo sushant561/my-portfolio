@@ -16,6 +16,112 @@
 
   body {
     @apply min-h-screen overflow-x-hidden bg-white dark:bg-gray-900;
+    position: relative;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate(100px, -100px) rotate(15deg);
+    }
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: -50% -50% -50% -50%;
+    background-image: radial-gradient(circle at 20% 35%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 75% 44%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 46% 52%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 35% 85%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 60% 12%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 92% 63%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 84% 25%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 15% 75%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 67% 89%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 89% 95%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 32% 15%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 55% 32%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 77% 72%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 23% 62%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 42% 92%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 95% 82%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 8% 92%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 88% 12%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 12% 38%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 52% 82%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 72% 28%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 28% 48%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 82% 48%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 48% 18%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 18% 88%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     /* Additional dots for more density */
+                     radial-gradient(circle at 65% 65%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 35% 35%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 25% 82%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 82% 25%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 15% 32%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 68% 15%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 92% 32%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 32% 92%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 45% 72%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 72% 45%, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.9;
+    animation: float 15s infinite linear;
+  }
+
+  /* Dark mode background dots */
+  .dark body::before {
+    background-image: radial-gradient(circle at 20% 35%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 75% 44%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 46% 52%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 35% 85%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 60% 12%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 92% 63%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 84% 25%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 15% 75%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 67% 89%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 89% 95%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 32% 15%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 55% 32%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 77% 72%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 23% 62%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 42% 92%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 95% 82%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 8% 92%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 88% 12%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 12% 38%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 52% 82%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 72% 28%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 28% 48%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 82% 48%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 48% 18%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 18% 88%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     /* Additional dots for more density */
+                     radial-gradient(circle at 65% 65%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 35% 35%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 25% 82%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 82% 25%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 15% 32%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 68% 15%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 92% 32%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 32% 92%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 45% 72%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px),
+                     radial-gradient(circle at 72% 45%, rgba(96, 165, 250, 0.3) 1.5px, transparent 1.5px);
+  }
+
+  /* Make sure content stays above the animated background */
+  #__next, 
+  main, 
+  .container {
+    position: relative;
+    z-index: 1;
   }
 }
 
