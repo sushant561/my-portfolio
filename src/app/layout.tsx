@@ -8,7 +8,7 @@ import { ActiveSectionProvider } from './components/ActiveSectionContext';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Sushant Bhagat | Portfolio",
   description: "My personal portfolio website",
 };
 
