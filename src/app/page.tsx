@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 import { TypeAnimation } from 'react-type-animation';
 
 // Dynamically import motion components with no SSR
-const MotionDiv = dynamic(() => import('framer-motion').then(mod => mod.motion.div), { ssr: false });
+// const MotionDiv = dynamic(() => import('framer-motion').then(mod => mod.motion.div), { ssr: false });
 const MotionButton = dynamic(() => import('framer-motion').then(mod => mod.motion.button), { ssr: false });
 
 interface Skill {
