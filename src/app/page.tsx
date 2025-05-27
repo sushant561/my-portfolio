@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useActiveSection } from './components/ActiveSectionContext';
 import type { Section } from './components/ActiveSectionContext';
 import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaReact, FaHtml5, FaCss3Alt, FaBootstrap, FaChartBar } from 'react-icons/fa';
-import { SiTailwindcss, SiTypescript, SiCplusplus, SiJavascript, SiPandas, SiNumpy } from 'react-icons/si';
+import { SiTailwindcss, SiTypescript, SiCplusplus, SiJavascript, SiPandas, SiNumpy, SiDjango } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import ContactForm from './components/ContactForm';
@@ -88,6 +88,7 @@ export default function Home() {
 
   const skills = [
     { name: 'Python', icon: FaPython, color: '#3776AB' },
+    { name: 'Django', icon: SiDjango, color: '#092E20' },
     { name: 'Pandas', icon: SiPandas, color: '#150458' },
     { name: 'Matplotlib', icon: FaChartBar, color: '#11557C' },
     { name: 'NumPy', icon: SiNumpy, color: '#013243' },
