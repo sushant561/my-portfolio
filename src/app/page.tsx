@@ -134,11 +134,11 @@ export default function Home() {
               </span>
             </h1>
             <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
-              Full Stack Developer
+            Computer Science undergraduate at Delhi University
             </h2>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl">
-              I'm a passionate developer who loves creating beautiful and functional web applications.
-              With expertise in modern technologies, I bring ideas to life through clean and efficient code.
+            Fueled by a love for learning, I build scalable web apps and explore AI-driven technologies 
+            to create meaningful, forward-thinking digital solutions.
             </p>
             <div className="flex gap-4">
               <a href="https://github.com/sushant561" target="_blank" rel="noopener noreferrer" className="social-icon">
