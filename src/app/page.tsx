@@ -2,6 +2,7 @@
 
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
+import { useState } from 'react';
 import { useActiveSection } from './components/ActiveSectionContext';
 import type { Section } from './components/ActiveSectionContext';
 import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaReact, FaHtml5, FaCss3Alt, FaBootstrap, FaChartBar } from 'react-icons/fa';
@@ -25,6 +26,12 @@ interface Skill {
 interface SkillCardProps {
   skill: Skill;
   index: number;
+}
+
+type SkillCategory = 'All' | 'Programming Languages' | 'Frontend' | 'Backend' | 'Database' | 'Tools';
+
+interface SkillsByCategory {
+  [key: string]: Skill[];
 }
 
 const SkillCard = ({ skill, index }: SkillCardProps) => {
@@ -86,21 +93,38 @@ export default function Home() {
     }
   };
 
-  const skills = [
-    { name: 'Python', icon: FaPython, color: '#3776AB' },
-    { name: 'Django', icon: SiDjango, color: '#092E20' },
-    { name: 'Pandas', icon: SiPandas, color: '#150458' },
-    { name: 'Matplotlib', icon: FaChartBar, color: '#11557C' },
-    { name: 'NumPy', icon: SiNumpy, color: '#013243' },
-    { name: 'C++', icon: SiCplusplus, color: '#00599C' },
-    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
-    { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
-    { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
-    { name: 'React', icon: FaReact, color: '#61DAFB' },
-    { name: 'Bootstrap', icon: FaBootstrap, color: '#7952B3' },
-    { name: 'Tailwind', icon: SiTailwindcss, color: '#06B6D4' },
-    { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' }
-  ];
+  const [activeCategory, setActiveCategory] = useState<SkillCategory>('All');
+
+  const skillsByCategory: SkillsByCategory = {
+    'Programming Languages': [
+      { name: 'Python', icon: FaPython, color: '#3776AB' },
+      { name: 'C++', icon: SiCplusplus, color: '#00599C' },
+      { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+      { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' }
+    ],
+    'Frontend': [
+      { name: 'React', icon: FaReact, color: '#61DAFB' },
+      { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
+      { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
+      { name: 'Bootstrap', icon: FaBootstrap, color: '#7952B3' },
+      { name: 'Tailwind', icon: SiTailwindcss, color: '#06B6D4' }
+    ],
+    'Backend': [
+      { name: 'Django', icon: SiDjango, color: '#092E20' }
+    ],
+    'Database': [],
+    'Tools': [
+      { name: 'Pandas', icon: SiPandas, color: '#150458' },
+      { name: 'Matplotlib', icon: FaChartBar, color: '#11557C' },
+      { name: 'NumPy', icon: SiNumpy, color: '#013243' }
+    ]
+  };
+
+  const categories = ['All', 'Programming Languages', 'Frontend', 'Backend', 'Database', 'Tools'];
+
+  const filteredSkills = activeCategory === 'All' 
+    ? Object.values(skillsByCategory).flat()
+    : skillsByCategory[activeCategory] || [];
 
   return (
     <div className="min-h-screen">
@@ -205,12 +229,32 @@ export default function Home() {
           className="max-w-7xl mx-auto px-4"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Skills & Expertise</h2>
-          <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
+          <p className="text-center text-gray-600 dark:text-gray-300 mb-8">
             Skilled in web development, UI/UX design, and problem-solving, delivering modern, <br/>
             responsive, and user-centric digital solutions.
           </p>
+          
+          {/* Category Filters */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {categories.map((category) => (
+              <motion.button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 rounded-full transition-all duration-300 ${
+                  activeCategory === category
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {category}
+              </motion.button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {skills.map((skill, index) => (
+            {filteredSkills.map((skill, index) => (
               <SkillCard key={skill.name} skill={skill} index={index} />
             ))}
           </div>
