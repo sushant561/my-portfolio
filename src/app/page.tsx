@@ -117,11 +117,11 @@ export default function Home() {
       { name: 'Pandas', icon: SiPandas, color: '#150458' },
       { name: 'Matplotlib', icon: FaChartBar, color: '#11557C' },
       { name: 'NumPy', icon: SiNumpy, color: '#013243' },
-      { name: 'Folume', icon: SiFolium, color: '#2C3E50' }
+      { name: 'Folium', icon: SiFolium, color: '#77B829' }
     ]
   };
 
-  const categories = ['All', 'Programming Languages', 'Frontend', 'Backend', 'Database', 'Tools'];
+  const categories: SkillCategory[] = ['All', 'Programming Languages', 'Frontend', 'Backend', 'Database', 'Tools'];
 
   const filteredSkills = activeCategory === 'All' 
     ? Object.values(skillsByCategory).flat()
@@ -237,7 +237,7 @@ export default function Home() {
           
           {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
+            {categories.map((category: SkillCategory) => (
               <motion.button
                 key={category}
                 onClick={() => setActiveCategory(category)}
