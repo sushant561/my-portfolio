@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useActiveSection } from './components/ActiveSectionContext';
 import type { Section } from './components/ActiveSectionContext';
 import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaReact, FaHtml5, FaCss3Alt, FaBootstrap, FaChartBar } from 'react-icons/fa';
-import { SiTailwindcss, SiTypescript, SiCplusplus, SiJavascript, SiPandas, SiNumpy, SiDjango } from 'react-icons/si';
+import { SiTailwindcss, SiTypescript, SiCplusplus, SiJavascript, SiPandas, SiNumpy, SiDjango, SiFolium } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import ContactForm from './components/ContactForm';
@@ -116,7 +116,8 @@ export default function Home() {
     'Tools': [
       { name: 'Pandas', icon: SiPandas, color: '#150458' },
       { name: 'Matplotlib', icon: FaChartBar, color: '#11557C' },
-      { name: 'NumPy', icon: SiNumpy, color: '#013243' }
+      { name: 'NumPy', icon: SiNumpy, color: '#013243' },
+      { name: 'Folume', icon: SiFolium, color: '#2C3E50' }
     ]
   };
 
