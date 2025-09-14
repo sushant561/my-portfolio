@@ -297,8 +297,8 @@ export default function Home() {
                 description: "Track progress, follow structured weekly exercise plans, and stay motivated with our fitness website designed for consistency, accountability, and results.",
                 image: "/images/project3.png",
                 tech: ["html", "Css", "JavaScript"],
-                github: "https://github.com/sushant561/it-cell-arsd",
-                demo: "https://it-cell-arsd.vercel.app/"
+                github: "https://github.com/sushant561/Workout-Challenge",
+                demo: "https://workout-weld-alpha.vercel.app/"
               }
             ].map((project, index) => (
               <motion.div
