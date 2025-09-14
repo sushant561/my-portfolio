@@ -293,8 +293,8 @@ export default function Home() {
                 demo: "https://www.ionia.sbs/"
               },
               {
-                title: "College Recruitment Web Portal",
-                description: "Designed a clean, responsive college recruitment website using HTML and CSS to streamline application processes and improve user engagement.",
+                title: "Weekly Fitness Made Easy",
+                description: "Track progress, follow structured weekly exercise plans, and stay motivated with our fitness website designed for consistency, accountability, and results.",
                 image: "/images/project3.png",
                 tech: ["html", "Css"],
                 github: "https://github.com/sushant561/it-cell-arsd",
