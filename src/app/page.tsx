@@ -296,7 +296,7 @@ export default function Home() {
                 title: "Weekly Fitness Made Easy",
                 description: "Track progress, follow structured weekly exercise plans, and stay motivated with our fitness website designed for consistency, accountability, and results.",
                 image: "/images/project3.png",
-                tech: ["html", "Css"],
+                tech: ["html", "Css", "JavaScript"],
                 github: "https://github.com/sushant561/it-cell-arsd",
                 demo: "https://it-cell-arsd.vercel.app/"
               }
