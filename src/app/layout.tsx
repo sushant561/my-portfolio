@@ -40,7 +40,8 @@ export const metadata: Metadata = {
     creator: "@Sushant1864",
     title: "Sushant Bhagat | Full Stack Developer",
     description: "Computer Science student at Delhi University (ARSD College). Full Stack Developer specializing in modern web technologies.",
-    images: ["/images/sushant.jpg"]
+    // images: ["/images/sushant.jpg"],
+    images: ["/images/sushant2.webp"]
   }
 };
 
