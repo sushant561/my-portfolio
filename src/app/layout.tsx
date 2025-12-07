@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Sushant Bhagat Portfolio",
     images: [
       {
-        url: "/images/sushant.jpg",
+        url: "/images/sushant2.webp",
         width: 800,
         height: 600,
         alt: "Sushant Bhagat - Full Stack Developer"
