@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Sushant Bhagat Portfolio",
     images: [
       {
-        url: "/images/sushant2.webp",
+        url: "/images/sushant.jpg",
         width: 800,
         height: 600,
         alt: "Sushant Bhagat - Full Stack Developer"
@@ -40,8 +40,7 @@ export const metadata: Metadata = {
     creator: "@Sushant1864",
     title: "Sushant Bhagat | Full Stack Developer",
     description: "Computer Science student at Delhi University (ARSD College). Full Stack Developer specializing in modern web technologies.",
-    // images: ["/images/sushant.jpg"],
-    images: ["/images/sushant2.webp"]
+    images: ["/images/sushant.jpg"]
   }
 };
 
