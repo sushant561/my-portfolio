@@ -9,7 +9,7 @@ import { ActiveSectionProvider } from './components/ActiveSectionContext';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sushant Bhagat | Full Stack Developer & Computer Science Student",
+  title: "Sushant Bhagat | Developer & Computer Science Student",
   description: "Portfolio of Sushant Bhagat, a Computer Science student at Delhi University (ARSD College). Full Stack Developer specializing in React, Next.js, and Python. From Lohardaga, currently based in New Delhi.",
   keywords: "Sushant Bhagat, sushant, sushant561, sushantbhagat01, sushant1864, ARSD College, Atma Ram Sanatan Dharma College, Delhi University, Lohardaga, Full Stack Developer, Computer Science, React Developer, Next.js Developer",
   authors: [{ name: "Sushant Bhagat" }],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Sushant Bhagat Portfolio",
     images: [
       {
-        url: "/images/sushant.jpg",
+        url: "/images/new_sushant.jpg",
         width: 800,
         height: 600,
         alt: "Sushant Bhagat - Full Stack Developer"
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     creator: "@Sushant1864",
     title: "Sushant Bhagat | Full Stack Developer",
     description: "Computer Science student at Delhi University (ARSD College). Full Stack Developer specializing in modern web technologies.",
-    images: ["/images/sushant.jpg"]
+    images: ["/images/new_sushant.jpg"]
   }
 };
 

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useActiveSection } from './components/ActiveSectionContext';
 import type { Section } from './components/ActiveSectionContext';
-import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaReact, FaHtml5, FaCss3Alt, FaBootstrap, FaChartBar } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaReact, FaHtml5, FaCss3Alt, FaBootstrap, FaChartBar, FaCode } from 'react-icons/fa';
 import { SiTailwindcss, SiTypescript, SiCplusplus, SiJavascript, SiPandas, SiNumpy, SiDjango, SiFolium } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
@@ -100,10 +100,10 @@ export default function Home() {
       { name: 'Python', icon: FaPython, color: '#3776AB' },
       { name: 'C++', icon: SiCplusplus, color: '#00599C' },
       { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
-      { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' }
+      // { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' }
     ],
     'Frontend': [
-      { name: 'React', icon: FaReact, color: '#61DAFB' },
+      // { name: 'React', icon: FaReact, color: '#61DAFB' },
       { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
       { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
       { name: 'Bootstrap', icon: FaBootstrap, color: '#7952B3' },
@@ -118,7 +118,7 @@ export default function Home() {
       { name: 'Matplotlib', icon: FaChartBar, color: '#11557C' },
       { name: 'NumPy', icon: SiNumpy, color: '#013243' },
       { name: 'Folium', icon: SiFolium, color: '#77B829' },
-      { name: 'Tkinter', icon: FaPython, color: '#3776AB' }
+      { name: 'Tkinter', icon: FaCode, color: '#3776AB' }
     ]
   };
 
@@ -209,7 +209,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-blue-500 rounded-full blur-2xl opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl transform group-hover:scale-105 transition-transform duration-300">
                 <Image
-                  src="/images/sushant.jpg"
+                  src="/images/new_sushant.jpg"
                   alt="Sushant Bhagat"
                   fill
                   className="object-cover hover:rotate-6 transition-transform duration-300"

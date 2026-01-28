@@ -10,7 +10,7 @@ export default function JsonLd() {
     "familyName": "Bhagat",
     "alternateName": ["sushant561", "sushantbhagat01", "sushant1864"],
     "description": "Full Stack Developer and Computer Science student at Delhi University (ARSD College)",
-    "image": "https://sushantbhagat.vercel.app/images/sushant.jpg",
+    "image": "https://sushantbhagat.vercel.app/images/new_sushant.jpg",
     "url": "https://sushantbhagat.vercel.app",
     "sameAs": [
       "https://github.com/sushant561",
