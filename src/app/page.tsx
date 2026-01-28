@@ -117,7 +117,8 @@ export default function Home() {
       { name: 'Pandas', icon: SiPandas, color: '#150458' },
       { name: 'Matplotlib', icon: FaChartBar, color: '#11557C' },
       { name: 'NumPy', icon: SiNumpy, color: '#013243' },
-      { name: 'Folium', icon: SiFolium, color: '#77B829' }
+      { name: 'Folium', icon: SiFolium, color: '#77B829' },
+      { name: 'Tkinter', icon: FaPython, color: '#3776AB' }
     ]
   };
 
