@@ -278,12 +278,12 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Modern College Web Portal",
-                description: "Developed a responsive college website using HTML, CSS, and JavaScript, featuring interactive design, smooth navigation, and essential functionalities.",
+                title: "Text Editor",
+                description: "Built a feature-rich Python Tkinter text editor with formatting tools, themes, file handling, and customizable interface options.",
                 image: "/images/project1.png",
-                tech: ["html", "Css", "JavaScript"],
-                github: "https://github.com/sushant561/collage-website",
-                demo: "https://willowy-brioche-3160f6.netlify.app/"
+                tech: ["Python", "Tkinter"],
+                github: "https://github.com/sushant561/Texteditor",
+                demo: "https://github.com/sushant561/Texteditor"
               },
               {
                 title: "AI Exam Prep Platform",
