@@ -379,7 +379,7 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Resume</h2>
           <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
-            Download my resume to learn more about my skills, experience, and qualifications.
+            Download my resume to know more about my skills, experience, and qualifications.
           </p>
           <div className="flex justify-center">
             <MotionButton
