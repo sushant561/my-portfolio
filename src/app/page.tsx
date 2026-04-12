@@ -466,7 +466,7 @@ export default function Home() {
                     <span>Live Demo</span>
                   </motion.a>
                   <motion.a
-                    href="/INTERNSHIP_DIARY.pdf"
+                    href="/INTERNSHIP_DIARY_26.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
