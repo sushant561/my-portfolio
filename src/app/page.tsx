@@ -428,7 +428,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20">
+      {/* <section id="experience" className="py-20">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -495,7 +495,7 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section id="contact" className="min-h-screen py-20">
