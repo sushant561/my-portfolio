@@ -128,6 +128,61 @@ export default function Home() {
     ? Object.values(skillsByCategory).flat()
     : skillsByCategory[activeCategory] || [];
 
+  const [showAllProjects, setShowAllProjects] = useState(false);
+
+  const projects = [
+    {
+      title: "Text Editor",
+      description: "Built a feature-rich Python Tkinter text editor with formatting tools, themes, file handling, and customizable interface options.",
+      image: "/images/project1.png",
+      tech: ["Python", "Tkinter"],
+      github: "https://github.com/sushant561/Texteditor",
+      demo: "https://github.com/sushant561/Texteditor"
+    },
+    {
+      title: "PopWorld Geo Dashboard",
+      description: "Built an interactive Django dashboard using Folium for country-wise population visualization, map interaction, and geographic analytics.",
+      image: "/images/project4.png",
+      tech: ["Python", "Django", "Folium", "Html", "Css"],
+      github: "https://github.com/sushant561/PopWorld",
+      demo: "https://pop-world.vercel.app/"
+    },
+    {
+      title: "Weekly Fitness Made Easy",
+      description: "Track progress, follow structured weekly exercise plans, and stay motivated with our fitness website designed for consistency, accountability, and results.",
+      image: "/images/project3.png",
+      tech: ["html", "Css", "JavaScript"],
+      github: "https://github.com/sushant561/Workout-Challenge",
+      demo: "https://workout-weld-alpha.vercel.app/"
+    },
+    {
+      title: "AI Exam Prep Platform",
+      description: "Created an advanced exam preparation website using modern tech stack, integrating AI features, secure backend, and responsive, user-friendly interface.",
+      image: "/images/project2.png",
+      tech: ['Next.js', 'JavaScript', 'Express.js', 'Cloudinary', 'TailwindCSS', 'TypeScript'],
+      github: "https://github.com/sushant561/ionia-Institute",
+      demo: "https://www.ionia.sbs/"
+    },
+    {
+      title: "FlatFair Expense Tracker",
+      description: "Expense management platform for flatmates enabling equal bill splitting, balance tracking, and downloadable PDF expense summaries.",
+      image: "/images/project5.png",
+      tech: ['TypeScript', 'JavaScript', 'Html', 'Css'],
+      github: "https://github.com/sushant561/FlatFair-Expense-Tracker",
+      demo: "https://flatfair.vercel.app/"
+    },
+    {
+      title: "Memory Card Game",
+      description: "Developed a responsive memory puzzle game with card matching mechanics, smooth interactions, and engaging user gameplay experience.",
+      image: "/images/project6.png",
+      tech: ['JavaScript', 'Html', 'Css'],
+      github: "https://github.com/sushant561/memory-card-game",
+      demo: "https://memory-card-game-six-smoky.vercel.app/"
+    }
+  ];
+
+  const visibleProjects = showAllProjects ? projects : projects.slice(0, 3);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -276,32 +331,7 @@ export default function Home() {
           Showcasing a selection of innovative projects that highlight my skills, creativity, <br/> and passion for impactful digital solutions.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Text Editor",
-                description: "Built a feature-rich Python Tkinter text editor with formatting tools, themes, file handling, and customizable interface options.",
-                image: "/images/project1.png",
-                tech: ["Python", "Tkinter"],
-                github: "https://github.com/sushant561/Texteditor",
-                demo: "https://github.com/sushant561/Texteditor"
-              },
-              {
-                title: "AI Exam Prep Platform",
-                description: "Created an advanced exam preparation website using modern tech stack, integrating AI features, secure backend, and responsive, user-friendly interface.",
-                image: "/images/project2.png",
-                tech: ['Next.js', 'JavaScript', 'Express.js', 'Cloudinary', 'TailwindCSS', 'TypeScript'],
-                github: "https://github.com/sushant561/ionia-Institute",
-                demo: "https://www.ionia.sbs/"
-              },
-              {
-                title: "Weekly Fitness Made Easy",
-                description: "Track progress, follow structured weekly exercise plans, and stay motivated with our fitness website designed for consistency, accountability, and results.",
-                image: "/images/project3.png",
-                tech: ["html", "Css", "JavaScript"],
-                github: "https://github.com/sushant561/Workout-Challenge",
-                demo: "https://workout-weld-alpha.vercel.app/"
-              }
-            ].map((project, index) => (
+            {visibleProjects.map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -366,6 +396,22 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+          {projects.length > 3 && (
+            <div className="flex justify-center mt-10">
+              <motion.button
+                onClick={() => setShowAllProjects((prev) => !prev)}
+                className={`projects-toggle-btn px-8 py-3 text-sm md:text-base font-medium tracking-wide ${
+                  showAllProjects ? 'projects-toggle-btn-rtl' : 'projects-toggle-btn-ltr'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10">
+                  {showAllProjects ? '<<< Show Only 3 Projects' : 'Show All Projects >>>'}
+                </span>
+              </motion.button>
+            </div>
+          )}
         </motion.div>
       </section>
 

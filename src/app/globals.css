@@ -215,3 +215,88 @@
 @keyframes cursor {
   50% { opacity: 1; }
 }
+
+@layer components {
+  .projects-toggle-btn {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(210, 215, 225, 0.9);
+    color: #e8eaef;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 9999px;
+    box-shadow:
+      0 0 14px rgba(192, 198, 210, 0.2),
+      inset 0 0 12px rgba(255, 255, 255, 0.03);
+    text-shadow: 0 0 12px rgba(220, 225, 235, 0.5);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .projects-toggle-btn:hover {
+    border-color: rgba(235, 238, 245, 0.95);
+    box-shadow:
+      0 0 22px rgba(210, 218, 230, 0.45),
+      inset 0 0 16px rgba(255, 255, 255, 0.06);
+    text-shadow: 0 0 18px rgba(240, 242, 248, 0.75);
+  }
+
+  .projects-toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 55%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 20%,
+      rgba(220, 228, 240, 0.55) 50%,
+      rgba(255, 255, 255, 0.08) 80%,
+      transparent 100%
+    );
+    pointer-events: none;
+    filter: blur(0.5px);
+  }
+
+  .projects-toggle-btn-ltr::before {
+    animation: silver-glow-ltr 2.4s ease-in-out infinite;
+  }
+
+  .projects-toggle-btn-rtl::before {
+    animation: silver-glow-rtl 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes silver-glow-ltr {
+  0% {
+    left: -60%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 105%;
+    opacity: 0;
+  }
+}
+
+@keyframes silver-glow-rtl {
+  0% {
+    left: 105%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: -60%;
+    opacity: 0;
+  }
+}
+
