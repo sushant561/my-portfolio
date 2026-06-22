@@ -474,7 +474,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      {/* <section id="experience" className="py-20">
+      <section id="experience" className="py-20">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -491,10 +491,10 @@ export default function Home() {
             >
               <div className="md:w-[65%] p-6">
                 <h3 className="text-xl font-semibold mb-3">
-                  Academic Content & Research Intern – Ionia Technology LLP
+                  DevOps and Infrastructure Intern – Ionia Technology LLP
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Currently working as a Subject Matter Expert Intern at Ionia Technology LLP, Gurugram, contributing to the research and organization of study resources for competitive exam preparation platforms including JEE, NEET, CUET, and CLAT
+                  Currently working as a DevOps and Infrastructure Intern at Ionia Technology LLP, Gurugram, Contributing to the development and infrastructure of IONIA's School ERP platform through module development, system improvements, and DevOps workflows.
                 </p>
                 <div className="mt-5 flex flex-wrap items-center gap-5">
                   <motion.a
@@ -541,7 +541,7 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
-      </section> */}
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className="min-h-screen py-20">
