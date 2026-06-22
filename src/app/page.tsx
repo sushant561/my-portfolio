@@ -16,6 +16,10 @@ import { TypeAnimation } from 'react-type-animation';
 // Dynamically import motion components with no SSR
 // const MotionDiv = dynamic(() => import('framer-motion').then(mod => mod.motion.div), { ssr: false });
 const MotionButton = dynamic(() => import('framer-motion').then(mod => mod.motion.button), { ssr: false });
+const ParticlesBackground = dynamic(
+  () => import('./components/ParticlesBackground'),
+  { ssr: false }
+);
 
 interface Skill {
   name: string;
@@ -185,6 +189,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <ParticlesBackground />
       {/* Hero Section */}
       <section id="home" className="min-h-screen pt-20 flex items-center">
         <motion.div
@@ -319,7 +324,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="min-h-screen py-20 bg-gray-50 dark:bg-gray-900">
+      <section id="projects" className="min-h-screen py-20">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -616,7 +621,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-gray-900 py-8">
+      <footer className="py-8">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col items-center justify-center space-y-4">
             <div className="flex gap-4">
